@@ -1,0 +1,3 @@
+export class Ingradients {
+  constructor() {}
+ }
