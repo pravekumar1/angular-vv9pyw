@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
 import { RecipesDetailsComponent } from './recipes/recipes-details/recipes-details.component';
@@ -14,7 +13,7 @@ import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipe
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, RecipesComponent, RecipesListComponent, RecipesDetailsComponent, ShoppingListComponent, ShoppingEditComponent, HeaderComponent, RecipesItemComponent ],
+  declarations: [ AppComponent, RecipesComponent, RecipesListComponent, RecipesDetailsComponent, ShoppingListComponent, ShoppingEditComponent, HeaderComponent, RecipesItemComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
