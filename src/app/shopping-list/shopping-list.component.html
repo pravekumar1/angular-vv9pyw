@@ -2,7 +2,9 @@
   <div class="col-sm-9">
     <app-shopping-edit></app-shopping-edit>
     <ul class="list-group">
-      <a class="list-group-item" style="cursor: pointer"></a>
+      <a class="list-group-item" style="cursor: pointer" *ngFor="let ingradient of ingradients">
+        {{ingradient.name}} ({{ingradient.amount}})
+      </a>
     </ul>
   </div>
   <div class="col-sm-3">

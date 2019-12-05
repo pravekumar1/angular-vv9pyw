@@ -1,3 +1,3 @@
 export class Ingradients {
-  constructor() {}
+  constructor(public name: string, public amount: number) {}
  }
