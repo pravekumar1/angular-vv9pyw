@@ -9,10 +9,12 @@ import { RecipesListComponent } from './recipes/recipes-list/recipes-list.compon
 import { RecipesDetailsComponent } from './recipes/recipes-details/recipes-details.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { HeaderComponent } from './header/header.component';
+import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipes-item.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, RecipesComponent, RecipesListComponent, RecipesDetailsComponent, ShoppingListComponent, ShoppingEditComponent ],
+  declarations: [ AppComponent, HelloComponent, RecipesComponent, RecipesListComponent, RecipesDetailsComponent, ShoppingListComponent, ShoppingEditComponent, HeaderComponent, RecipesItemComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
