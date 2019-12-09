@@ -4,6 +4,14 @@
     <div class="col-12">
       <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
       <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>
+      <p appHighlightDirective> This is green color background text</p>
+      <button type="text" class="btn btn-primary" (click)="showTheText()">Click to Show</button>
+      <p *appUnless="showText">
+        This is to show the text on button click
+      </p>
+      <p appRenderer [defualtColor]="'red'" [highLightedColor]="'green'">This is blue color background text and using renderer.</p>
+
+
     </div>
   </div>
 </div>

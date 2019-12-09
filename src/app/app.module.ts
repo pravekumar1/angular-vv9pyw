@@ -10,6 +10,10 @@ import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-edit.component";
 import { HeaderComponent } from "./header/header.component";
 import { RecipesItemComponent } from "./recipes/recipes-list/recipes-item/recipes-item.component";
+import {HighlightDirective} from './directives/highlight.directive';
+import { RendererDirective } from './directives/renderer.directive';
+import { UnlessDirective } from './directives/unless.directive';
+import { DropdownDirective } from './shared/directives/dropdown.directive';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -21,7 +25,11 @@ import { RecipesItemComponent } from "./recipes/recipes-list/recipes-item/recipe
     ShoppingListComponent,
     ShoppingEditComponent,
     HeaderComponent,
-    RecipesItemComponent
+    RecipesItemComponent,
+    HighlightDirective,
+    RendererDirective,
+    UnlessDirective,
+    DropdownDirective
   ],
   bootstrap: [AppComponent]
 })
