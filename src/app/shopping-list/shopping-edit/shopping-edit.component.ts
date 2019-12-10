@@ -10,8 +10,8 @@ import { Ingradients } from "../../shared/ingradients.model";
 export class ShoppingEditComponent implements OnInit {
   @ViewChild("nameInput") inputNameRef: ElementRef;
   @ViewChild("amountInput") inputAmountRef: ElementRef;
-
   @Output() ingredientsAdded = new EventEmitter<Ingradients>();
+  
   constructor() {}
 
   ngOnInit() {}
