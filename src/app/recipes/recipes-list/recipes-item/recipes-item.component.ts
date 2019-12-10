@@ -9,7 +9,7 @@ import { Recipes } from "../../recipes.model";
 })
 export class RecipesItemComponent implements OnInit {
   @Input() recipeItem: Recipes;
-  @Output recipeSelected = new EventEmitter<void>();
+  @Output() recipeSelected = new EventEmitter<void>();
   constructor() {}
 
   ngOnInit() {}
