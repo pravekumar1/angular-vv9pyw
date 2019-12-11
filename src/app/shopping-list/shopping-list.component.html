@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-sm-9">
-    <app-shopping-edit (ingredientsAdded)="onIngredientsAdded($event)"></app-shopping-edit>
+    <!-- <app-shopping-edit (ingredientsAdded)="onIngredientsAdded($event)"></app-shopping-edit> -->
+    <app-shopping-edit></app-shopping-edit>
     <ul class="list-group">
       <a class="list-group-item" style="cursor: pointer" *ngFor="let ingradient of ingradients">
         {{ingradient.name}} ({{ingradient.amount}})
