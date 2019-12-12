@@ -27,6 +27,10 @@
 	</div>
   <div class="row">
 		<div class="col-sm-12">
-			<p>Ingradients</p>
-		</div>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="letrecipeDetail of recipeDetails.ingradients">
+          {{recipeDetail.name}} - {{recipeDetail.amount}}
+        </li>
+      </ul>  
+      		</div>
 	</div>
