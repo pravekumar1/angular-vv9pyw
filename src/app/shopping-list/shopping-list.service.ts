@@ -19,4 +19,10 @@ export class ShoppingListService {
     this.ingradients.push(ingradient);
     this.ingradientsChanged.emit(this.ingradients.slice());   
   }
+
+  addRecipeIngredients(ingradient: Ingradients[]) {
+    this.ingradients.push(...ingradient);
+    this.ingradientsChanged.emit(this.ingradients.slice());   
+
+  }
 }
