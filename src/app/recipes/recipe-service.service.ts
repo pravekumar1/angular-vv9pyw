@@ -18,9 +18,9 @@ export class RecipeServiceService {
       ]
     ),
     new Recipes(
-      "A test Recipe",
-      "This is a description part",
-      "https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/caponata-pasta_1.jpg",
+      "A Second Recipe value",
+      "This is a second description part",
+      "https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/epic-summer-salad.jpg",
       [
         new Ingradients("Apple", 15),
         new Ingradients("Oranges", 20),
