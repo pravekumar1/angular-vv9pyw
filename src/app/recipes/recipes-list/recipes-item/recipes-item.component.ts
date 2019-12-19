@@ -11,6 +11,8 @@ import { RecipeServiceService } from "../../recipe-service.service";
 })
 export class RecipesItemComponent implements OnInit {
   @Input() recipeItem: Recipes;
+  @Input() recipeItemID: number;
+
   // @Output() recipeSelected = new EventEmitter<void>();
   constructor(private recipeService: RecipeServiceService) {}
 
