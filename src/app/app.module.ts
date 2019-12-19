@@ -18,10 +18,6 @@ import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { RecipeServiceService } from './recipes/recipe-service.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 
-
-
-
-
 @NgModule({
   imports: [BrowserModule, FormsModule],
   declarations: [
