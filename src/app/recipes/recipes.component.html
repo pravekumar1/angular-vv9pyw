@@ -4,10 +4,11 @@
     <app-recipes-list></app-recipes-list>
 	</div>
 	<div class="col-md-7">
-		<app-recipes-details *ngIf="selectedSingleRecipe; else defaultText" [recipeDetails]="selectedSingleRecipe">
+    <router-outlet></router-outlet>
+		<!-- <app-recipes-details *ngIf="selectedSingleRecipe; else defaultText" [recipeDetails]="selectedSingleRecipe">
 		</app-recipes-details>
 		<ng-template #defaultText>
 			Please select the recipe
-		</ng-template>
+		</ng-template> -->
 	</div>
 </div>
