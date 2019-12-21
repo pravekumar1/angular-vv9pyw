@@ -7,6 +7,7 @@ import {
   EventEmitter
 } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import {Subscription} from 'rxjs/Subscription';
 
 import { Ingradients } from "../../shared/ingradients.model";
 import { ShoppingListService } from "../shopping-list.service";
@@ -22,8 +23,23 @@ export class ShoppingEditComponent implements OnInit {
   // @Output() ingredientsAdded = new EventEmitter<Ingradients>();
 
   constructor(private slService: ShoppingListService) {}
+  subscription: Subscription;
+  editMode = false;
+  editedItemIdex: number;
+  editedItem: Ingradients;
+  @ViewChild("formData") editFormData: NgForm;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.subscription = this.slService.startEditingValue.subscribe((index: number) => {
+      this.editedItemIdex = index;
+      this.editMode= true;
+      this.editedItem = this.slService.getIngredient(index);
+      this.editFormData.setValue({
+        name: this.editedItem.name,
+        amount: this.editedItem.amount,
+      })
+    } );
+  }
 
   onAddItem(form: NgForm) {
     // const ingName= this.inputNameRef.nativeElement.value;
@@ -33,5 +49,9 @@ export class ShoppingEditComponent implements OnInit {
     const newIngredients = new Ingradients(value.name, value.amount);
     // this.ingredientsAdded.emit(newIngredients);
     this.slService.addIngredients(newIngredients);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
