@@ -30,4 +30,9 @@ export class ShoppingListService {
     this.ingradients.push(...ingradient);
     this.ingradientsChanged.next(this.ingradients.slice());
   }
+ 
+  updateIngredients(index, newIngradents: Ingradients) {
+    this.ingradients[index] =  newIngradents;
+    this.ingradientsChanged.next(this.ingradients.slice());
+  }
 }

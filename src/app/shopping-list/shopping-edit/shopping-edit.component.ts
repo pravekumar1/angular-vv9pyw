@@ -48,7 +48,13 @@ export class ShoppingEditComponent implements OnInit {
     console.log(value);
     const newIngredients = new Ingradients(value.name, value.amount);
     // this.ingredientsAdded.emit(newIngredients);
-    this.slService.addIngredients(newIngredients);
+    if (this.editMode) {
+      this.slService.updateIngredients(this.editedItemIdex, newIngredients);
+    } else {
+      this.slService.addIngredients(newIngredients);
+    } 
+    this.editMode= false;
+    form.reset();
   }
 
   ngOnDestroy(): void {
