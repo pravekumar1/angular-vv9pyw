@@ -15,7 +15,10 @@
 						<div class="col-sm-12 mb-3">
 							<div class="btn-toolbar">
 								<!-- <button class="btn btn-success mr-2" type="submit" (click)="onAddItem()">Add</button> -->
-								<button class="btn btn-success mr-2" type="submit" [disabled]="!formData.valid">Add</button>
+								<button 
+                class="btn btn-success mr-2" 
+                type="submit" 
+                [disabled]="!formData.valid">{{editedItem ? 'Update' : 'Add'}}</button>
 								<button class="btn btn-danger mr-2 " type="button">Delete</button>
 								<button class="btn btn-primary" type="reset">Clear</button>
 							</div>
