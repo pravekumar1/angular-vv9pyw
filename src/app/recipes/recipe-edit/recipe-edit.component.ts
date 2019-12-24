@@ -29,7 +29,7 @@ export class RecipeEditComponent implements OnInit {
         'name': new FormControl(),
         'amount': new FormControl()
       })
-    )
+    );
   }
   private initializeForm() {
     let recipeName = '';
