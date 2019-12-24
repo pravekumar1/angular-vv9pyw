@@ -31,4 +31,9 @@ onShoppingListAdded() {
   this.recipeService.addToShoppingList(this.recipeDetails.ingradients);
 }
 
+onDeleteRecipe() {
+  this.recipeService.deleteRecipe(this.id);
+  this.router.navigate(['/recipes']);
+}
+
 }

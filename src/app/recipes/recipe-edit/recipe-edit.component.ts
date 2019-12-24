@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { RecipeServiceService } from "../recipe-service.service";
+import { Recipes } from "../recipes.model";
 
 @Component({
   selector: 'app-recipe-edit',
@@ -13,7 +14,7 @@ export class RecipeEditComponent implements OnInit {
   id: number;
   editMode = false;
   recipeForm: FormGroup;
-  constructor(private route: ActivatedRoute, private recipeService: RecipeServiceService) { }
+  constructor(private route: ActivatedRoute, private recipeService: RecipeServiceService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -26,8 +27,8 @@ export class RecipeEditComponent implements OnInit {
   onAddIngradient() {
     (<FormArray>this.recipeForm.get('ingradients')).push(
       new FormGroup({
-        'name': new FormControl(),
-        'amount': new FormControl()
+        'name': new FormControl(null, Validators.required),
+        'amount': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)])
       })
     );
   }
@@ -47,25 +48,42 @@ export class RecipeEditComponent implements OnInit {
         for(let ingradient of recipe.ingradients) {
         recipeIngredients.push(
           new FormGroup({
-         'name': new FormControl(ingradient.name),
-         'amount': new FormControl(ingradient.amount)
+         'name': new FormControl(ingradient.name, Validators.required),
+         'amount': new FormControl(ingradient.amount, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)])
           })
           );
         }
       }
     }
     this.recipeForm = new FormGroup({
-      'name': new FormControl(recipeName),
-      'imagePath': new FormControl(recipeImage),
-      'description': new FormControl(recipeDescription),
+      'name': new FormControl(recipeName, Validators.required),
+      'imagePath': new FormControl(recipeImage, Validators.required),
+      'description': new FormControl(recipeDescription, Validators.required),
       'ingradients': recipeIngredients 
     });
   }
 
-
-
   onSaveRecipeForm() {
-    console.log(this.recipeForm);
+    const newRecipe = new Recipes(
+      this.recipeForm.value['name'],
+      this.recipeForm.value['description'],
+      this.recipeForm.value['imagePath'],
+      this.recipeForm.value['ingradients'],
+    );
+    if(this.editMode) {
+      this.recipeService.updateRecipe(this.id, this.recipeForm.value);
+    } else {
+      this.recipeService.addRecipe(this.recipeForm.value);
+    }
+    this.onCancel();
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
+  onDeleteIngradient(index: number){
+    (<FormArray>this.recipeForm.get('ingradients')).removeAt(index);
   }
 
 }
