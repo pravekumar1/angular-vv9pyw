@@ -20,7 +20,7 @@
           </div>
           <div class="row">
             <div class="col-sm-12 form-group" formArrayName="ingradients">
-              <div class="row" *ngFor="let ingradient of controls; let i = index" [formGroupName]="i">
+              <div class="row" *ngFor="let ingradient of this.recipeForm.controls['ingredients']; let i = index" [formGroupName]="i">
 						<div class="col-sm-8">
 							<input type="text" class="form-control" formControlName="name" >
 						</div>
