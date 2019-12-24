@@ -19,8 +19,8 @@
             <textarea id="desc" formControlName="description" class="form-control" rows="6"></textarea>
           </div>
           <div class="row">
-            <div class="col-sm-12 form-group" formArrayName="ingradients">
-              <div class="row" *ngFor="let ingradient of this.recipeForm.controls['ingredients']; let i = index" [formGroupName]="i">
+            <div class="col-sm-12" formArrayName="ingradients">
+              <div class="row form-group" *ngFor="let ingradient of recipeForm.controls.ingradients.controls; let i = index" [formGroupName]="i">
 						<div class="col-sm-8">
 							<input type="text" class="form-control" formControlName="name" >
 						</div>
@@ -35,7 +35,7 @@
           </div>
           <div class="row">
 						<div class="col-sm-12">
-							<button type="button" class="btn btn-success" (click)="onAddIngradient()">Add Ingradient</button>
+							<button type="submit" class="btn btn-success" (click)="onAddIngradient()">Add Ingradient</button>
 						</div>
 					</div>
 					<div class="row">

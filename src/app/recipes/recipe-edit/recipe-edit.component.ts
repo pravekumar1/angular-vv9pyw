@@ -42,8 +42,7 @@ export class RecipeEditComponent implements OnInit {
       recipeName = recipe.name;
       recipeImage = recipe.imagePath;
       recipeDescription = recipe.description;
-      console.log(recipe['ingradients']);
-      debugger;
+      // console.log(recipe['ingradients']);
       if(recipe['ingradients']) {
         for(let ingradient of recipe.ingradients) {
         recipeIngredients.push(
