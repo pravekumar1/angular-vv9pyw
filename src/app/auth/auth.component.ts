@@ -25,16 +25,14 @@ export class AuthComponent implements OnInit {
     }
     const email = form.value.email;
     const password = form.value.password;
-    let authObservable: Observable<Auth>;
+    let authObservable: Observable<AuthREsponseData>;
+
+    this.isLoading = true;
 
     if (this.isLoggedIn) {
-      this.authService.login(email, password).subscribe(resLoginData => {
-        console.log(resLoginData);
-        this.isLoading = false;
-      });
+      authObservable = this.authService.login(email, password);
     } else {
-      this.isLoading = true;
-      this.authService.signUp(email, password);
+      authObservable = this.authService.signUp(email, password);
     }
 
     authObservable.subscribe(
@@ -48,7 +46,7 @@ export class AuthComponent implements OnInit {
         this.isLoading = false;
       }
     );
-    
+
     form.reset();
   }
 }
