@@ -10,6 +10,8 @@ import { AuthService } from "./auth.service";
 export class AuthComponent implements OnInit {
   constructor(private authService: AuthService) {}
   isLoggedIn;
+  isLoading = false;
+  error = '';
   ngOnInit() {}
 
   onSwitchMode() {
@@ -24,12 +26,16 @@ export class AuthComponent implements OnInit {
     const password = form.value.password;
     if (this.isLoggedIn) {
     } else {
+      this.isLoading = true;
       this.authService.signUp(email, password).subscribe(
         resData => {
           console.log(resData);
+          this.isLoading = false;
         },
         error => {
           console.log(error);
+          this.error = 'An error occured\.'
+          this.isLoading = false;
         }
       );
     }

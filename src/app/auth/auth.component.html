@@ -1,19 +1,24 @@
 <div class="row">
-	<div class="col-sm-12">
-		<form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+	<div class="col-sm-12 mt-4">
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+		<div class="text-center" *ngIf="isLoading">
+			<app-loading-spinner></app-loading-spinner>
+		</div>
+    <h3 *ngIf="!isLoading">{{isLoggedIn? 'Login': 'Sign Up'}}</h3>
+		<form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
 			<div class="form-group">
 				<label for="email">Email</label>
-        <input type="email" id="email" class="form-control" ngModel name="email" required email />
+				<input type="email" id="email" class="form-control" ngModel name="email" required email />
 			</div>
-      <div class="form-group">
-				<label for="password">Password</label>
-        <input type="password" id="password" class="form-control" ngModel name="password" minlength="6" />
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" id="password" class="form-control" ngModel name="password" minlength="6" />
 			</div>
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-success mr-3" [disabled]="!authForm.valid">{{isLoggedIn? 'Login': 'Sign Up'}}</button>
-        <button class="btn btn-success" (click)="onSwitchMode()">Switch to {{isLoggedIn? 'Sign Up' : 'Login'}}</button>
-      </div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success mr-3" [disabled]="!authForm.valid">{{isLoggedIn? 'Login': 'Sign Up'}}</button>
+						<button class="btn btn-success" (click)="onSwitchMode()">Switch to {{isLoggedIn? 'Sign Up' : 'Login'}}</button>
+					</div>
 		</form>
 	</div>
 </div>
