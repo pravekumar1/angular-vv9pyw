@@ -5,7 +5,9 @@ import { RecipesComponent } from "./recipes/recipes.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
 import { RecipesDetailsComponent } from "./recipes/recipes-details/recipes-details.component";
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component";
+import { RecipesResolverService } from "./recipes/recipes-resolver.service";
+import { AuthComponent } from './auth/auth.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/recipes", pathMatch: "full" },
@@ -14,12 +16,21 @@ const appRoutes: Routes = [
     component: RecipesComponent,
     children: [
       { path: "", component: RecipeStartComponent },
-      {path: 'new-recipe', component: RecipeEditComponent},
-      {path: ':id', component: RecipesDetailsComponent},
-      {path: ':id/edit-recipe', component: RecipeEditComponent},
-      ]
+      { path: "new-recipe", component: RecipeEditComponent },
+      {
+        path: ":id",
+        component: RecipesDetailsComponent,
+        resolve: [RecipesResolverService]
+      },
+      {
+        path: ":id/edit-recipe",
+        component: RecipeEditComponent,
+        resolve: [RecipesResolverService]
+      }
+    ]
   },
-  { path: "shopping-list", component: ShoppingListComponent }
+  { path: "shopping-list", component: ShoppingListComponent },
+  { path: "login", component: AuthComponent }
 ];
 
 @NgModule({
