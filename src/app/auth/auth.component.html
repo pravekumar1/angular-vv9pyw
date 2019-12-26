@@ -17,7 +17,7 @@
 
 					<div class="form-group">
 						<button type="submit" class="btn btn-success mr-3" [disabled]="!authForm.valid">{{isLoggedIn? 'Login': 'Sign Up'}}</button>
-						<button class="btn btn-success" (click)="onSwitchMode()">Switch to {{isLoggedIn? 'Sign Up' : 'Login'}}</button>
+						<button type="button" class="btn btn-success" (click)="onSwitchMode()">Switch to {{isLoggedIn? 'Sign Up' : 'Login'}}</button>
 					</div>
 		</form>
 	</div>
