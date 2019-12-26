@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/form";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
-import { AuthService, AuthREsponseData } from "./auth.service";
+import { AuthService, AuthResponseData } from "./auth.service";
 
 @Component({
   selector: "app-auth",
@@ -26,7 +26,7 @@ export class AuthComponent implements OnInit {
     }
     const email = form.value.email;
     const password = form.value.password;
-    let authObservable: Observable<AuthREsponseData>;
+    let authObservable: Observable<AuthResponseData>;
 
     this.isLoading = true;
 

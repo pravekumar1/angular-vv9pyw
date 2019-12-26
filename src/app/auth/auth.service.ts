@@ -5,7 +5,7 @@ import { throwError, Subject } from "rxjs";
 
 import { User } from "./user.model";
 
-export interface AuthREsponseData {
+export interface AuthResponseData {
   idToken: string;
   email: string;
   refreshToken: string;
@@ -29,7 +29,7 @@ export class AuthService {
   user = new Subject<User>();
   signUp(email: string, password: string) {
     return this.http
-      .post<AuthREsponseData>(this.authUrl, {
+      .post<AuthResponseData>(this.authUrl, {
         email: email,
         password: password,
         returnSecureToken: true
@@ -41,7 +41,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http
-      .post<AuthREsponseData>(this.signInUrl, {
+      .post<AuthResponseData>(this.signInUrl, {
         email: email,
         password: password,
         returnSecureToken: true
