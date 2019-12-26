@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   {
     path: "recipes",
     component: RecipesComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     children: [
       { path: "", component: RecipeStartComponent },
       { path: "new-recipe", component: RecipeEditComponent },
