@@ -18,6 +18,7 @@ import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 import { AlertComponent } from "./shared/alert/alert.component";
 import { RecipesModule } from "./recipes/recipes.module";
 import { ShoppingModule } from "./shopping-list/shopping.module";
+import { AuthModule } from "./auth/auth.module";
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { ShoppingModule } from "./shopping-list/shopping.module";
     AppRoutingModule,
     HttpClientModule,
     RecipesModule,
-    ShoppingModule
+    ShoppingModule,
+    AuthModule
   ],
   declarations: [
     AppComponent,
