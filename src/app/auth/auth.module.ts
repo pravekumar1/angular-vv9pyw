@@ -6,7 +6,7 @@ import { RouterModule } from "@angular/router";
 import { AuthComponent } from "./auth.component";
 
 @NgModule({
-  declarations: [],
+  declarations: [AuthComponent],
   imports: [
     CommonModule,
     FormsModule,
