@@ -8,6 +8,6 @@ import { ShoppingEditComponent } from "./shopping-edit/shopping-edit.component";
 
 @NgModule({
   declarations: [ShoppingListComponent, ShoppingEditComponent],
-  imports: [CommonModule, ShoppingRoutingModule, ]
+  imports: [CommonModule, ShoppingRoutingModule, FormsModule]
 })
 export class ShoppingModule {}
