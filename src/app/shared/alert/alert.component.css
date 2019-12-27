@@ -12,9 +12,9 @@
   position: fixed;
   top: 30vh;
   left: 20vw;
-  width: 100vw;
+  width: 6vw;
   padding: 16px;
-  background: rgba(0, 0, 0, 0.75);
+  background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   z-index: 51;
 }
