@@ -9,8 +9,6 @@ import { HeaderComponent } from "./header/header.component";
 import { HighlightDirective } from "./directives/highlight.directive";
 import { RendererDirective } from "./directives/renderer.directive";
 import { UnlessDirective } from "./directives/unless.directive";
-import { ShoppingModule } from "./shopping-list/shopping.module";
-import { AuthModule } from "./auth/auth.module";
 import { AuthComponent } from "./auth/auth.component";
 import {SharedCommonModule} from "./shared/shared-common.module";
 import {CoreModule} from "./core.module";
@@ -20,8 +18,6 @@ import {CoreModule} from "./core.module";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ShoppingModule,
-    AuthModule,
     SharedCommonModule,
     CoreModule,
     FormsModule
