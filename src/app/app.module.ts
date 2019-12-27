@@ -5,8 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
-import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-edit.component";
 import { HeaderComponent } from "./header/header.component";
 import { HighlightDirective } from "./directives/highlight.directive";
 import { RendererDirective } from "./directives/renderer.directive";
@@ -19,6 +17,7 @@ import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinne
 import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 import { AlertComponent } from "./shared/alert/alert.component";
 import { RecipesModule} from "./recipes/recipes.module";
+import {ShoppingModule} from "./shopping-list/shopping.module";
 
 @NgModule({
   imports: [
@@ -27,12 +26,11 @@ import { RecipesModule} from "./recipes/recipes.module";
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RecipesModule
+    RecipesModule,
+    ShoppingModule
   ],
   declarations: [
     AppComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     HeaderComponent,
     HighlightDirective,
     RendererDirective,
