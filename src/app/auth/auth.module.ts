@@ -6,11 +6,11 @@ import { RouterModule } from "@angular/router";
 import { AuthComponent } from "./auth.component";
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild([{ path: "login", component: AuthComponent }]),
-    FormsModule
+    FormsModule,
+    RouterModule.forChild([{ path: "login", component: AuthComponent }])
   ]
 })
 export class AuthModule {}

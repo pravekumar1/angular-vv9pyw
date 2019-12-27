@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -11,6 +12,7 @@ import { UnlessDirective } from "./directives/unless.directive";
 import { RecipesModule } from "./recipes/recipes.module";
 import { ShoppingModule } from "./shopping-list/shopping.module";
 import { AuthModule } from "./auth/auth.module";
+import { AuthComponent } from "./auth/auth.component";
 import {SharedCommonModule} from "./shared/shared-common.module";
 import {CoreModule} from "./core.module";
 
@@ -23,11 +25,13 @@ import {CoreModule} from "./core.module";
     ShoppingModule,
     AuthModule,
     SharedCommonModule,
-    CoreModule
+    CoreModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
+    AuthComponent,
     HighlightDirective,
     RendererDirective,
     UnlessDirective
